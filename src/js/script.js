@@ -1,10 +1,37 @@
-import Sample from './lib/Sample';
-import $ from 'jquery';
+import { Howl } from 'howler';
 
-const sample = new Sample({
-    name: 'world'
+const dom = {
+    button: document.querySelector('#button'),
+    time: document.querySelector('#time')
+};
+
+const sound = new Howl({
+    src: [ '/8bit18.mp3' ],
+    loop: true
 });
 
-$('.wrapper').on('click', () => {
-    console.log(`hello, ${sample.name}.`);
+let flag = false;
+
+function loop () {
+    const seconds = sound.seek();
+    if (!isNaN(seconds)) {
+        dom.time.innerHTML = Math.floor(seconds) + 's';
+    }
+    requestAnimationFrame(loop);
+}
+
+sound.on('play', () => {
+    flag = true;
+    dom.button.innerHTML = 'pause';
 });
+
+sound.on('pause', () => {
+    flag = false;
+    dom.button.innerHTML = 'resume';
+});
+
+dom.button.addEventListener('click', () => {
+    flag ? sound.pause() : sound.play();
+});
+
+loop();
