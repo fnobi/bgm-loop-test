@@ -1,4 +1,4 @@
-kayac-html5-starter
+bgm-loop-test
 ====
 
 ## 事前に用意するもの
