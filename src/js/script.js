@@ -14,8 +14,9 @@ let flag = false;
 
 function loop () {
     const seconds = sound.seek();
+    const duration = sound.duration();
     if (!isNaN(seconds)) {
-        dom.time.innerHTML = Math.floor(seconds) + 's';
+        dom.time.innerHTML = `${Math.floor(seconds)}s / ${Math.floor(duration)}s`;
     }
     requestAnimationFrame(loop);
 }
