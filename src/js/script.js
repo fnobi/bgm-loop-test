@@ -11,7 +11,7 @@ const dom = {
 };
 
 const sound = new Howl({
-    src: [ '/8bit18.mp3' ],
+    src: [ './8bit18.mp3' ],
     loop: false // 手動loopなので不要
 });
 

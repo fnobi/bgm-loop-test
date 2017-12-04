@@ -2864,7 +2864,7 @@ var dom = {
 };
 
 var sound = new _howler.Howl({
-    src: ['/8bit18.mp3'],
+    src: ['./8bit18.mp3'],
     loop: false // 手動loopなので不要
 });
 
